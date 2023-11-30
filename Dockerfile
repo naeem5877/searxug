@@ -12,8 +12,14 @@ RUN apt-get update && \
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Specify a compatible version of Werkzeug
+RUN pip install --no-cache-dir werkzeug==0.16.1
+
 # Expose the port the app runs on
-EXPOSE 8888
+EXPOSE 5000
+
+# Set the environment variable for Searx to use the correct base URL
+ENV BASE_URL=https://openvpn-h2f2.onrender.com
 
 # Specify the command to run on container start
 CMD ["python", "searx/webapp.py"]
