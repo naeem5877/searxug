@@ -12,8 +12,8 @@ RUN apt-get update && \
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Specify a compatible version of Werkzeug
-RUN pip install --no-cache-dir werkzeug==0.16.1
+# Specify Flask version
+RUN pip install --no-cache-dir Flask==2.0.0
 
 # Expose the port the app runs on
 EXPOSE 5000
